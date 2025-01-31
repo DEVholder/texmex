@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>texmex</title>
+        
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="./css/style.css">
+
+        <!-- Bootstrap CSS CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <container>
+            <!-- header -->
+            <header>
+                <div>
+                    <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+                        <div class="container">
+                            <!-- 로고 -->
+                            <a class="navbar-brand" href="#">
+                                <img src="images/logo.png" alt="logo">
+                            </a>
+                            <!-- 토글 버튼 -->
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <!-- 내비게이션 메뉴 -->
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#menu">메뉴</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#intro">소개</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#startup-inquiry">창업 문의</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+
+            <!-- home -->
+            <section id="home">
+                <!-- 텍스트와 버튼 -->
+                <div class="hero-caption">
+                    <h1>Texmex</h1>
+                    <p>텍스멕스는 미국의 멕시코 음식을 기반으로 한 음식점입니다.</p>
+                    <a href="#startup-inquiry" class="btn btn-primary">창업문의 바로가기</a>
+                </div>
+            
+                <!-- 슬라이더 -->
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="./images/bg01.png" class="d-block w-100" alt="Slide 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./images/bg02.png" class="d-block w-100" alt="Slide 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./images/bg03.png" class="d-block w-100" alt="Slide 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./images/bg04.png" class="d-block w-100" alt="Slide 4">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- 메뉴 -->
+            <section id="menu">
+                <div class="container py-5">
+                    <h2 class="text-center mb-4">대표 메뉴</h2>
+                    <div id="menuCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                        <div class="carousel-inner">
+                            <!-- 첫 번째 슬라이드 -->
+                            <div class="carousel-item active">
+                                <div class="d-flex justify-content-center">
+                                    <div class="menu-item mx-2 text-center">
+                                        <img src="./images/menu/1.오리지날파히타.png" class="menu-img" alt="Menu 1">
+                                        <h4>오리지날 파히타</h4>
+                                    </div>
+                                    <div class="menu-item mx-2 text-center">
+                                        <img src="./images/menu/2.폴드포크파히타.png" class="menu-img" alt="Menu 2">
+                                        <h4>폴드포크 파히타</h4>
+                                    </div>
+                                    <div class="menu-item mx-2 text-center">
+                                        <img src="./images/menu/3.쉬림프파히타.png" class="menu-img" alt="Menu 2">
+                                        <h4>쉬림프 파히타</h4>
+                                    </div>
+                                    <div class="menu-item mx-2 text-center">
+                                        <img src="./images/menu/4.파히타샘플러.png" class="menu-img" alt="Menu 2">
+                                        <h4>파히타 샘플로</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 두 번째 슬라이드 -->
+                            <div class="carousel-item">
+                                <div class="d-flex justify-content-center">
+                                    <div class="menu-item mx-2 text-center">
+                                        <img src="./images/menu/5.비프,포크,치킨타코.png" class="menu-img" alt="Menu 3">
+                                        <h4>비프/포크/치킨 타코</h4>
+                                    </div>
+                                    <div class="menu-item mx-2 text-center">
+                                        <img src="./images/menu/6.1인파히타.png" class="menu-img" alt="Menu 2">
+                                        <h4>1인 파히타</h4>
+                                    </div>
+                                    <div class="menu-item mx-2 text-center">
+                                        <img src="./images/menu/7.퀘사디아4조각.png" class="menu-img" alt="Menu 2">
+                                        <h4>퀘사디아 4조각</h4>
+                                    </div>
+                                    <div class="menu-item mx-2 text-center">
+                                        <img src="./images/menu/8.퀘사디아10인치.png" class="menu-img" alt="Menu 2">
+                                        <h4>퀘사디아 10인치</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 세 번째 슬라이드 -->
+                            <div class="carousel-item">
+                                <div class="d-flex justify-content-center">
+                                    <div class="menu-item mx-2 text-center">
+                                        <img src="./images/menu/9.눈꽃치즈옥수수.png" class="menu-img" alt="Menu 3">
+                                        <h4>눈꽃치즈 옥수수</h4>
+                                    </div>
+                                    <div class="menu-item mx-2 text-center">
+                                        <img src="./images/menu/10.샐러드.png" class="menu-img" alt="Menu 2">
+                                        <h4>샐러드</h4>
+                                    </div>
+                                    <div class="menu-item mx-2 text-center">
+                                        <img src="./images/menu/11.나초.png" class="menu-img" alt="Menu 2">
+                                        <h4>나초</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 슬라이드 컨트롤 버튼 -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#menuCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#menuCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 소개 -->
+            <section id="intro" class="container">
+                <!-- 창업 비용 차트 -->
+                <section id="startup-cost-chart">
+                    <div class="chart-container mx-auto p-3">
+                        <div class="text-center">
+                            <h2>창업 비용</h2>
+                        </div>
+                        <div class="table-responsive mb-5 container">
+                            <table class="table table-bordered text-center">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">구분</th>
+                                        <th scope="col">금액 (만원)</th>
+                                        <th scope="col">비고</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>가맹비</td>
+                                        <td>0</td>
+                                        <td>면제</td>
+                                    </tr>
+                                    <tr>
+                                        <td>보증금</td>
+                                        <td>300</td>
+                                        <td>계약해지시 반환</td>
+                                    </tr>
+                                    <tr>
+                                        <td>로열티</td>
+                                        <td>0</td>
+                                        <td>면제</td>
+                                    </tr>
+                                    <tr>
+                                        <td>교육비</td>
+                                        <td>0</td>
+                                        <td>면제</td>
+                                    </tr>
+                                    <tr>
+                                        <td>배송비</td>
+                                        <td>0</td>
+                                        <td>면제(본사 부담)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>인테리어</td>
+                                        <td>-</td>
+                                        <td>직접 구입가능</td>
+                                    </tr>
+                                    <tr>
+                                        <td>간판</td>
+                                        <td>-</td>
+                                        <td>직접 구입가능</td>
+                                    </tr>
+                                    <tr>
+                                        <td>포스기</td>
+                                        <td>-</td>
+                                        <td>직접 구입가능</td>
+                                    </tr>
+                                    <tr>
+                                        <td>주방기기</td>
+                                        <td>-</td>
+                                        <td>직접 구입가능</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 지점 소개 -->
+                <section id="branch-info" class="container">
+                    <div>
+                        <h2>지점 소개</h2>
+                        <div>
+                            <div>
+                                <img src="images/branch1.jpg" alt="branch1">
+                                <h4>장안점</h4>
+                            </div>
+                            <div>
+                                <img src="images/branch2.jpg" alt="branch2">
+                                <h4>천호점</h4>
+                            </div>
+                            <div>
+                                <img src="images/branch3.jpg" alt="branch3">
+                                <h4>서초점</h4>
+                            </div>
+                            <div>
+                                <img src="images/branch3.jpg" alt="branch3">
+                                <h4>잠실점</h4>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 창업 문의 -->
+            <section id="startup-inquiry" class="container">
+                <form action="">
+                    <div>
+                        <label for="">성함</label>
+                        <input type="text" name="name" placeholder="성함을 입력해주세요" required>
+                    </div>
+                    <div>
+                        <label for="">연락처</label>
+                        <input type="text" name="phone" placeholder="연락처를 입력해주세요" required>
+                    </div>
+                    <div>
+                        <label for="">창업 희망 지역</label>
+                        <button type="button" id="searchAddressBtn">주소검색</button>
+                        <input type="text" id="addressInput" name="region" placeholder="창업 희망 지역을 간단히 입력해주세요" required>
+                        <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+                    </div>
+                    <div>
+                        <label for="">상세 내용</label>
+                        <textarea class="form-control" name="detail" maxlength="500" rows="5" cols="50" style="resize: none;"></textarea>
+                    </div>
+                    <div>
+                        <label for="">개인정보 수집 및 이용 동의</label>
+                        <div>
+                            텍스멕스는 개인정보 보호법 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리지침을 수립․공개합니다.
+                            <br>
+                            <br>
+                            <strong>(개인정보의 처리목적)</strong>
+                            <br>
+                            텍스멕스는 가맹 상담 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 가맹상담 용도 외에는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
+                            <br>
+                            <br>
+                            1. 수집항목: (필수) 성함, 연락처, 창업희망지역, 상세 내용
+                            <br>
+                            2. 사용목적: 가맹상담 문의, 기타 관련 문의사항 답변, 창업 정보 제공 및 안내 전화/문자 발송
+                            <br>
+                            3. 보유기간: 3년간 보관
+                            <br>
+                            <br>
+                            * 해당 개인정보 수집 이용에 대한 동의 거부가 가능하며, 개인정보수집 동의 거부 시 창업상담은 불가합니다.
+                            <br>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="agree" checked required>
+                            <label for="">개인정보 수집 및 이용에 동의합니다.</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">문의하기</button>
+                </form>
+            </section>
+
+            <!-- footer -->
+            <footer>
+                <div class="container text-center">
+                    <h4>텍스멕스</h4>
+                    <p>대표자: 안현준</p>
+                    <p>사업자등록번호: 386-14-01875</p>
+                    <p>주소: 서울시 강동구 구천면로 36길 21, 텍스멕스</p>
+                    <p>연락처: 010 5069 1994</p>
+                    <p>이메일: </p>
+                </div>
+            </footer>
+        </container>
+        </script>
+        <!-- Bootstrap Bundle with Popper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Custom JS -->
+        <script src="./js/custom.js"></script>
+    </body>
+</html>

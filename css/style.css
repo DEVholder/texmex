@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#home {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#home .carousel-item {
+    height: 100vh;
+}
+
+#home img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-caption {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    z-index: 10;
+    color: white;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hero-caption h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-caption p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.hero-caption .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+#home .btn-primary {
+    background-color: #074C17;
+    border-color: #074C17;
+}
+
+#home .btn-primary:hover {
+    background-color: #066017; /* 호버 시 조금 더 밝은 색상 */
+    border-color: #066017;
+}
+
+#menu {
+    background-color: #222831;
+    padding: 50px 0;
+    color: white;
+}
+
+.menu-img {
+    object-fit: cover;
+    border-radius: 30%;
+}
+
+#business-profit {
+    background-color: #ECDFD5;
+    color: black;
+}
+
+.chart-container {
+    position: relative; /* 유지 */
+    margin: 0 auto; /* 유지 */
+}
+
+#startup-cost-chart{
+    background-color: #ECDFD5;
+    padding: 50px 0;
+    color: black;
+}
+
+#branch-info {
+    background-color: #222831;
+    color: white;
+}
+
+#startup-inquiry {
+    background-color: #ECDFD5;
+    color: black;
+}
+
+#startup-inquiry .btn-primary {
+    background-color: #074C17;
+    border-color: #074C17;
+}
+
+#startup-inquiry .btn-primary:hover {
+    background-color: #066017; /* 호버 시 조금 더 밝은 색상 */
+    border-color: #066017;
+}
+
+footer{
+    background-color: #222831;
+    color: white;
+    padding-bottom: 0;
+}
