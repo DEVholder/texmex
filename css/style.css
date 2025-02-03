@@ -30,7 +30,7 @@ body {
     border-radius: 10px;
 }
 
-.hero-caption h1 {
+.hero-caption h2 {
     font-size: 2.5rem;
     margin-bottom: 10px;
 }
@@ -66,20 +66,42 @@ body {
     border-radius: 30%;
 }
 
-#business-profit {
-    background-color: #ECDFD5;
-    color: black;
-}
-
-.chart-container {
-    position: relative; /* 유지 */
-    margin: 0 auto; /* 유지 */
-}
-
 #startup-cost-chart{
     background-color: #ECDFD5;
     padding: 50px 0;
     color: black;
+}
+
+#startup-cost-chart h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#startup-cost-chart table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#startup-cost-chart th, #startup-cost-chart td {
+    border: 1px solid #222831;
+    padding: 10px;
+}
+
+#startup-cost-chart tbody td p {
+    display: inline;
+}
+
+.cost{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: line-through;
+    text-decoration-color: red;
+}
+
+.cost-note{
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #FFAE0D;
 }
 
 #branch-info {
@@ -101,6 +123,15 @@ body {
     background-color: #066017; /* 호버 시 조금 더 밝은 색상 */
     border-color: #066017;
 }
+
+.privacy-consent{
+    height: 300px;
+    border: 1px solid #222831;
+    background-color: white;
+    overflow: auto;
+}
+
+
 
 footer{
     background-color: #222831;
