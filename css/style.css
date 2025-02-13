@@ -109,14 +109,13 @@ body {
     background-color: #ECDFD5;
     padding: 50px 0;
     color: black;
-    height: 95vh;
+    /* height: 95vh; */
 }
 
 #startup-cost-chart h2 {
     font-family: 'BMDOHYEON';
-    font-size: 5rem;
+    font-size: 4rem;
     margin-top: 5%;
-    margin-bottom: 20px;
 }
 
 #startup-cost-chart table {
@@ -124,9 +123,13 @@ body {
     border-collapse: collapse;
 }
 
-#startup-cost-chart th, #startup-cost-chart td {
+#startup-cost-chart th, 
+#startup-cost-chart td {
     border: 1px solid #222831;
-    padding: 10px;
+    padding: 20px 10px; /* 세로 패딩을 10px에서 20px로 늘림 */
+    font-size: 1.5rem;
+    font-weight: bold;
+
 }
 
 #startup-cost-chart tbody td p {
@@ -134,8 +137,6 @@ body {
 }
 
 .cost{
-    font-size: 1.5rem;
-    font-weight: bold;
     text-decoration: line-through;
     text-decoration-color: red;
 }
@@ -145,13 +146,19 @@ body {
     font-weight: bold;
     color: #FFAE0D;
 }
+
+.cost-info {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #222831;
+}
 /* cost chart end */
 
 /* branch info start */
 #branch-info {
     background-color: #222831;
     color: white;
-    height: 95vh;
+    /* height: 95vh; */
 }
 
 #branch-info h2 {
@@ -166,6 +173,12 @@ body {
 #startup-inquiry {
     background-color: #ECDFD5;
     color: black;
+}
+
+#startup-inquiry h2 {
+    font-family: 'BMDOHYEON';
+    font-size: 4rem;
+    margin-top: 5%;
 }
 
 #startup-inquiry .btn-primary {
