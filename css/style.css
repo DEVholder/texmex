@@ -1,11 +1,21 @@
+@font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+
 body {
     margin: 0;
     padding: 0;
 }
 
+/* home start */
 #home {
     position: relative;
-    height: 100vh;
+    height: 95vh;
     overflow: hidden;
 }
 
@@ -20,29 +30,40 @@ body {
 
 .hero-caption {
     position: absolute;
-    top: 20%;
-    left: 10%;
+    top: 25%;
+    left: 25%;
     z-index: 10;
+    width: 50%;
+    height: 50%;
     color: white;
     text-align: left;
     background: rgba(0, 0, 0, 0.5);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .hero-caption h2 {
-    font-size: 2.5rem;
+    font-family: 'BMDOHYEON';
+    text-align: center;
+    margin-top: 5%;
+    font-size: 5rem;
     margin-bottom: 10px;
 }
 
 .hero-caption p {
-    font-size: 1.2rem;
+    /* font-family: 'NanumSquare', sans-serif; */
+    text-align: left;
+    padding-left: 10%;
+    font-size: 2rem;
     margin-bottom: 15px;
 }
 
 .hero-caption .btn {
-    font-size: 1rem;
+    position: absolute;
+    font-size: 2rem;
     padding: 10px 20px;
+    right: 3%;
+    bottom: 3%;
 }
 
 #home .btn-primary {
@@ -54,11 +75,21 @@ body {
     background-color: #066017; /* 호버 시 조금 더 밝은 색상 */
     border-color: #066017;
 }
+/* home end */
 
+/* menu start */
 #menu {
+    height: 95vh;
     background-color: #222831;
     padding: 50px 0;
     color: white;
+}
+
+#menu h2 {
+    font-family: 'BMDOHYEON';
+    text-align: center;
+    margin: 10%;
+    font-size: 4rem;
 }
 
 .menu-img {
@@ -66,14 +97,25 @@ body {
     border-radius: 30%;
 }
 
+.menu-item h4 {
+    font-size: 2rem;
+    margin-top: 50px;
+
+}
+/* menu end */
+
+/* cost chart start */
 #startup-cost-chart{
     background-color: #ECDFD5;
     padding: 50px 0;
     color: black;
+    height: 95vh;
 }
 
 #startup-cost-chart h2 {
-    font-size: 2.5rem;
+    font-family: 'BMDOHYEON';
+    font-size: 5rem;
+    margin-top: 5%;
     margin-bottom: 20px;
 }
 
@@ -103,12 +145,24 @@ body {
     font-weight: bold;
     color: #FFAE0D;
 }
+/* cost chart end */
 
+/* branch info start */
 #branch-info {
     background-color: #222831;
     color: white;
+    height: 95vh;
 }
 
+#branch-info h2 {
+    font-family: 'BMDOHYEON';
+    text-align: center;
+    margin: 10%;
+    font-size: 4rem;
+}
+/* branch info end */
+
+/* inquiry start */
 #startup-inquiry {
     background-color: #ECDFD5;
     color: black;
@@ -123,13 +177,14 @@ body {
     background-color: #066017; /* 호버 시 조금 더 밝은 색상 */
     border-color: #066017;
 }
+/* inquiry end */
 
-.privacy-consent{
+/* .privacy-consent{
     height: 300px;
     border: 1px solid #222831;
     background-color: white;
     overflow: auto;
-}
+} */
 
 
 
