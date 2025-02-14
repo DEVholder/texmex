@@ -3,32 +3,41 @@
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
-
-@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
-
-body {
+  }
+  
+  @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+  
+  body {
     margin: 0;
     padding: 0;
-}
+  }
 
-/* home start */
-#home {
+  .btn-primary {
+    background-color: #074C17;
+    border-color: #074C17;
+  }
+  
+  .btn-primary:hover {
+    background-color: #066017;
+    border-color: #066017;
+  }
+  
+  /* Home Section */
+  #home {
     position: relative;
-    height: 95vh;
     overflow: hidden;
-}
-
-#home .carousel-item {
+  }
+  
+  #home .carousel-item {
     height: 100vh;
-}
-
-#home img {
+  }
+  
+  #home img {
     height: 100%;
     object-fit: cover;
-}
-
-.hero-caption {
+  }
+  
+  .hero-caption {
     position: absolute;
     top: 25%;
     left: 25%;
@@ -38,171 +47,133 @@ body {
     color: white;
     text-align: left;
     background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 20px;
-}
-
-.hero-caption h2 {
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+  }
+  
+  .hero-caption h2 {
     font-family: 'BMDOHYEON';
     text-align: center;
     margin-top: 5%;
     font-size: 5rem;
-    margin-bottom: 10px;
-}
-
-.hero-caption p {
-    /* font-family: 'NanumSquare', sans-serif; */
+    margin-bottom: 0.625rem;
+  }
+  
+  .hero-caption p {
     text-align: left;
-    padding-left: 10%;
+    padding-left: 1rem; /* 기존 10% 대신 1rem 사용 */
     font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.hero-caption .btn {
+    margin-bottom: 1rem;
+  }
+  
+  .hero-caption .btn {
     position: absolute;
     font-size: 2rem;
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem;
     right: 3%;
     bottom: 3%;
-}
-
-#home .btn-primary {
-    background-color: #074C17;
-    border-color: #074C17;
-}
-
-#home .btn-primary:hover {
-    background-color: #066017; /* 호버 시 조금 더 밝은 색상 */
-    border-color: #066017;
-}
-/* home end */
-
-/* menu start */
-#menu {
-    height: 95vh;
+  }
+  
+  /* Menu Section */
+  #menu {
     background-color: #222831;
-    padding: 50px 0;
+    /* padding: 3rem 0; */
     color: white;
-}
-
-#menu h2 {
+  }
+  
+  #menu h2 {
     font-family: 'BMDOHYEON';
     text-align: center;
-    margin: 10%;
+    margin: 3rem auto;
     font-size: 4rem;
-}
-
-.menu-img {
+  }
+  
+  .menu-img {
     object-fit: cover;
     border-radius: 30%;
-}
-
-.menu-item h4 {
+  }
+  
+  .menu-item h4 {
     font-size: 2rem;
-    margin-top: 50px;
-
-}
-/* menu end */
-
-/* cost chart start */
-#startup-cost-chart{
+    margin-top: 3rem;
+  }
+  
+  /* Startup Cost Chart */
+  #startup-cost-chart {
     background-color: #ECDFD5;
-    padding: 50px 0;
+    padding: 3rem 0;
     color: black;
-    /* height: 95vh; */
-}
-
-#startup-cost-chart h2 {
+  }
+  
+  #startup-cost-chart h2 {
     font-family: 'BMDOHYEON';
     font-size: 4rem;
-    margin-top: 5%;
-}
-
-#startup-cost-chart table {
+    margin-top: 3rem;
+  }
+  
+  #startup-cost-chart table {
     width: 100%;
     border-collapse: collapse;
-}
-
-#startup-cost-chart th, 
-#startup-cost-chart td {
+  }
+  
+  #startup-cost-chart th, 
+  #startup-cost-chart td {
     border: 1px solid #222831;
-    padding: 20px 10px; /* 세로 패딩을 10px에서 20px로 늘림 */
+    padding: 1.25rem 0.625rem;
     font-size: 1.5rem;
     font-weight: bold;
-
-}
-
-#startup-cost-chart tbody td p {
+  }
+  
+  #startup-cost-chart tbody td p {
     display: inline;
-}
-
-.cost{
+  }
+  
+  .cost {
     text-decoration: line-through;
     text-decoration-color: red;
-}
-
-.cost-note{
+  }
+  
+  .cost-note {
     font-size: 1.8rem;
     font-weight: bold;
     color: #FFAE0D;
-}
-
-.cost-info {
+  }
+  
+  .cost-info {
     font-size: 3rem;
     font-weight: bold;
     color: #222831;
-}
-/* cost chart end */
-
-/* branch info start */
-#branch-info {
+  }
+  
+  /* Branch Info */
+  #branch-info {
     background-color: #222831;
     color: white;
-    /* height: 95vh; */
-}
-
-#branch-info h2 {
+  }
+  
+  #branch-info h2 {
     font-family: 'BMDOHYEON';
     text-align: center;
-    margin: 10%;
+    margin: 3rem auto;
     font-size: 4rem;
-}
-/* branch info end */
-
-/* inquiry start */
-#startup-inquiry {
+  }
+  
+  /* Startup Inquiry */
+  #startup-inquiry {
     background-color: #ECDFD5;
     color: black;
-}
-
-#startup-inquiry h2 {
+  }
+  
+  #startup-inquiry h2 {
     font-family: 'BMDOHYEON';
     font-size: 4rem;
-    margin-top: 5%;
-}
-
-#startup-inquiry .btn-primary {
-    background-color: #074C17;
-    border-color: #074C17;
-}
-
-#startup-inquiry .btn-primary:hover {
-    background-color: #066017; /* 호버 시 조금 더 밝은 색상 */
-    border-color: #066017;
-}
-/* inquiry end */
-
-/* .privacy-consent{
-    height: 300px;
-    border: 1px solid #222831;
-    background-color: white;
-    overflow: auto;
-} */
-
-
-
-footer{
+    margin-top: 3rem;
+  }
+  
+  /* Footer */
+  footer {
     background-color: #222831;
     color: white;
     padding-bottom: 0;
-}
+  }
+  
