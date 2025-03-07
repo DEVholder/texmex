@@ -7,6 +7,11 @@
   
   @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
   
+  :target {
+    scroll-margin-top: 50px; /* navbar 높이 만큼 */
+  }
+  
+
   body {
     margin: 0;
     padding: 0;
@@ -29,7 +34,7 @@
   }
   
   #home .carousel-item {
-    height: 100vh;
+    /* height: 100vh; */
   }
   
   #home img {
@@ -43,7 +48,7 @@
     left: 25%;
     z-index: 10;
     width: 50%;
-    height: 50%;
+    /* height: 50%; */
     color: white;
     text-align: left;
     background: rgba(0, 0, 0, 0.5);
@@ -67,11 +72,14 @@
   }
   
   .hero-caption .btn {
-    position: absolute;
+    /* position: absolute; */
+    position: relative;
     font-size: 2rem;
     padding: 0.625rem 1.25rem;
-    right: 3%;
-    bottom: 3%;
+    float: right;
+    margin-top: 5%;
+    /* margin-right: 2%;
+    margin-bottom: 2%; */
   }
   
   /* Menu Section */
