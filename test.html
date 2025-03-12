@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요식업 창업 문의 - 지점 소개</title>
+    <!-- 부트스트랩 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .branch-section {
+            padding: 60px 0;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .branch-list {
+            height: 500px;
+            overflow-y: auto;
+            padding: 0;
+        }
+        
+        .branch-item {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .branch-item:hover, .branch-item.active {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .branch-name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .branch-address {
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+        
+        .branch-contact {
+            font-size: 14px;
+            color: #495057;
+        }
+        
+        /* 스크롤바 스타일링 */
+        .branch-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .branch-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .branch-list::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        
+        .branch-list::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* 로딩 인디케이터 */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-size: 18px;
+            color: #6c757d;
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #09f;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 지점 소개 섹션 -->
+    <section class="branch-section bg-light" id="branch-info" >
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12 text-center">
+                    <h2 class="fw-bold">지점 소개</h2>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- 지도 표시 영역 -->
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div id="map" class="map-container">
+                        <div class="loading">
+                            <div class="loading-spinner"></div>
+                            <span>지도를 로딩 중입니다...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 지점 목록 영역 -->
+                <div class="col-md-6">
+                    <div class="branch-list" id="branchList"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 부트스트랩 JS 및 필수 의존성 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 카카오맵 API (키는 실제 값으로 변경 필요) -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=&libraries=services&autoload=false"></script>
+    
+    <script>
+        // 지점 데이터 (실제 데이터로 교체 필요)
+        const branches = [
+            {
+                id: 1,
+                name: "텍스멕스 서초점",
+                address: "서울 서초구 사임당로12길 17 A동 102호",
+                lat: 37.4882555354808,
+                lng: 127.01717358841
+            },
+            {
+                id: 2,
+                name: "텍스멕스 왕십리점",
+                address: "서울 성동구 마장로 137",
+                lat: 37.5678250213489,
+                lng: 127.025053595952
+            },
+            {
+                id: 3,
+                name: "텍스멕스 장안점",
+                address: "서울 동대문구 답십리로 318 1층",
+                lat: 37.5718995927236,
+                lng: 127.07557816414
+            },
+            {
+                id: 4,
+                name: "텍스멕스 장실점",
+                address: "서울 송파구 백제고분로32길 6-33 1층 103호",
+                lat: 37.501682105649,
+                lng: 127.093815702097
+            },
+            {
+                id: 5,
+                name: "텍스멕스 천호점",
+                address: "서울 강동구 구천면로36길 21 1층",
+                lat: 37.5426748134349,
+                lng: 127.132803332103
+            }
+            
+        ];
+
+        // 카카오맵 초기화 및 지점 표시
+        let map;
+        let markers = [];
+        let activeMarker = null;
+
+        // 카카오맵 SDK 로드
+        kakao.maps.load(function() {
+            console.log("카카오맵 SDK 로드 완료");
+            initMap();
+            createBranchList();
+            
+            // 로딩 인디케이터 제거
+            document.querySelector('.loading').style.display = 'none';
+        });
+
+        function initMap() {
+            // 서울 중심 좌표 (초기 지도 중심)
+            const seoulCenter = new kakao.maps.LatLng(37.5665, 126.9780);
+            
+            // 지도 생성
+            const mapContainer = document.getElementById('map');
+            const mapOption = { 
+                center: seoulCenter,
+                level: 9 // 확대 레벨 (숫자가 작을수록 더 확대됨)
+            };
+            
+            map = new kakao.maps.Map(mapContainer, mapOption);
+            
+            // 지도 컨트롤 추가
+            const zoomControl = new kakao.maps.ZoomControl();
+            map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+            
+            const mapTypeControl = new kakao.maps.MapTypeControl();
+            map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+            
+            // 지점 마커 생성
+            branches.forEach(branch => {
+                addMarker(branch);
+            });
+        }
+
+        function addMarker(branch) {
+            const position = new kakao.maps.LatLng(branch.lat, branch.lng);
+            
+            // 마커 생성
+            const marker = new kakao.maps.Marker({
+                position: position,
+                map: map
+            });
+            
+            // 인포윈도우 생성
+            const infowindow = new kakao.maps.InfoWindow({
+                content: `
+                    <div style="padding:8px;font-size:12px;width:150px;text-align:center;">
+                        <div style="font-weight:bold;font-size:14px;margin-bottom:5px;">${branch.name}</div>
+                        <div style="font-size:11px;color:#777;">${branch.address}</div>
+                    </div>
+                `
+            });
+            
+            // 마커 클릭 이벤트
+            kakao.maps.event.addListener(marker, 'click', function() {
+                // 기존 열린 인포윈도우 닫기
+                closeAllInfowindows();
+                
+                // 현재 인포윈도우 열기
+                infowindow.open(map, marker);
+                
+                // 목록에서 해당 지점 활성화
+                highlightBranchItem(branch.id);
+                
+                // 지도 중심 이동
+                map.panTo(position);
+            });
+            
+            // 마커와 인포윈도우 저장
+            markers.push({ marker, infowindow, branchId: branch.id });
+        }
+
+        function closeAllInfowindows() {
+            markers.forEach(item => {
+                item.infowindow.close();
+            });
+        }
+
+        function createBranchList() {
+            const branchListElement = document.getElementById('branchList');
+            
+            branches.forEach(branch => {
+                const branchItem = document.createElement('div');
+                branchItem.className = 'branch-item';
+                branchItem.setAttribute('data-id', branch.id);
+                
+                branchItem.innerHTML = `
+                    <div class="branch-name">${branch.name}</div>
+                    <div class="branch-address">${branch.address}</div>
+                `;
+                
+                // 지점 항목 클릭 이벤트
+                branchItem.addEventListener('click', function() {
+                    const branchId = parseInt(this.getAttribute('data-id'));
+                    
+                    // 해당 마커로 이동 및 인포윈도우 표시
+                    const markerObj = markers.find(item => item.branchId === branchId);
+                    if (markerObj) {
+                        // 모든 인포윈도우 닫기
+                        closeAllInfowindows();
+                        
+                        // 해당 인포윈도우 열기
+                        markerObj.infowindow.open(map, markerObj.marker);
+                        
+                        // 지도 중심 이동
+                        const position = markerObj.marker.getPosition();
+                        map.panTo(position);
+                        
+                        // 목록에서 활성화
+                        highlightBranchItem(branchId);
+                    }
+                });
+                
+                branchListElement.appendChild(branchItem);
+            });
+        }
+
+        function highlightBranchItem(branchId) {
+            // 모든 지점 항목 비활성화
+            const branchItems = document.querySelectorAll('.branch-item');
+            branchItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // 선택한 지점 항목 활성화
+            const selectedItem = document.querySelector(`.branch-item[data-id="${branchId}"]`);
+            if (selectedItem) {
+                selectedItem.classList.add('active');
+                selectedItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        // 에러 처리
+        window.addEventListener('error', function(e) {
+            console.error('지도 로딩 중 오류 발생:', e.message);
+            const mapContainer = document.getElementById('map');
+            mapContainer.innerHTML = `
+                <div style="display:flex;justify-content:center;align-items:center;height:100%;flex-direction:column;padding:20px;text-align:center;">
+                    <div style="font-size:20px;color:#dc3545;margin-bottom:10px;">지도 로딩 실패</div>
+                    <div style="font-size:14px;color:#6c757d;">카카오맵 API 키가 올바르게 설정되었는지 확인해주세요.</div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
