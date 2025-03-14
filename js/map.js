@@ -73,6 +73,21 @@ function createBranchList() {
                                 <div class="branch-address">${branch.address}</div>`;
         branchItem.addEventListener('click', function() {
             const branchId = parseInt(this.getAttribute('data-id'));
+        
+            // 이미 활성화되어 있는 경우
+            if (this.classList.contains('active')) {
+                // 활성화된 하이라이트 제거
+                this.classList.remove('active');
+                // 모든 인포윈도우 닫기
+                closeAllInfowindows();
+                // 지도 초기 좌표와 확대비율로 리셋
+                const seoulCenter = new kakao.maps.LatLng(37.5665, 126.9780);
+                map.setLevel(9);
+                map.panTo(seoulCenter);
+                return;
+            }
+            
+            // 활성화되지 않은 경우 기존 로직 수행
             const markerObj = markers.find(item => item.branchId === branchId);
             if (markerObj) {
                 closeAllInfowindows();
