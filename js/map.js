@@ -22,7 +22,7 @@
 // }
 function loadKakaoMapScript(callback) {
     const script = document.createElement("script");
-    const KAKAO_API_KEY = '';
+    const KAKAO_API_KEY = 'b256941fee23e126b5375ff202b9cd6a';
     script.type = "text/javascript";
     script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${KAKAO_API_KEY}&libraries=services&autoload=false`;
     script.onload = callback; // 콜백 함수 호출

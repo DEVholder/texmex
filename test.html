@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>영업이익 표 예시</title>
+  <style>
+    body {
+      background: #f6ece5;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: #222;
+    }
+    .profit-table-wrap {
+      max-width: 520px;
+      margin: 40px auto 0;
+      background: #f6ece5;
+      padding: 32px 0 0 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      margin-bottom: 0;
+      font-size: 1.1rem;
+    }
+    th, td {
+      text-align: center;
+      padding: 14px 8px;
+    }
+    th {
+      background: #f9f4ef;
+      font-weight: bold;
+      font-size: 1.1em;
+      border-bottom: 2px solid #e1d5c9;
+    }
+    td {
+      border-bottom: 1px solid #e1d5c9;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .margin-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #222;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.2em;
+      padding: 0;
+      border-radius: 0 0 4px 4px;
+      margin-bottom: 0;
+    }
+    .margin-label {
+      flex: 1.5;
+      background: #222;
+      padding: 18px 0;
+      text-align: center;
+      border-radius: 0 0 0 4px;
+    }
+    .margin-value {
+      flex: 2;
+      background: #222;
+      padding: 18px 0;
+      text-align: center;
+    }
+    .margin-rate {
+      flex: 1;
+      background: #217b2b;
+      color: #fff;
+      font-size: 1.4em;
+      padding: 18px 0;
+      text-align: center;
+      border-radius: 0 0 4px 0;
+    }
+    .notice {
+      margin-top: 32px;
+      font-size: 1em;
+      color: #222;
+      text-align: center;
+      line-height: 1.6;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+  <div class="profit-table-wrap">
+    <table id="profit-table"></table>
+    <div class="margin-row">
+      <div class="margin-label">마진율</div>
+      <div class="margin-value" id="margin-value"></div>
+      <div class="margin-rate" id="margin-rate"></div>
+    </div>
+    <div class="notice">
+      위 구조는 장안본점의 실제 매출액에 근거한 손익 자료입니다.<br>
+      다른 상권과 기타 요소에 따라 변동될 수 있습니다.
+    </div>
+  </div>
+  <script>
+    // 데이터 정의
+    const profitData = {
+      header: ["구분", "금액", "비율"],
+      rows: [
+        ["총 매출", "64,052,730원", "100%"],
+        ["재료비", "19,343,924원", "30%"],
+        ["플랫폼 수수료", "17,294,237원", "27%"],
+        ["인건비", "9,639,935원", "15%"],
+        ["쿠폰 광고비", "3,202,636원", "5%"],
+        ["공과금", "1,345,107원", "2%"]
+      ],
+      margin: {
+        value: "13,226,891원",
+        rate: "21%"
+      }
+    };
+
+    // 표 렌더링
+    function renderProfitTable(data) {
+      const table = document.getElementById('profit-table');
+      let html = "<thead><tr>";
+      data.header.forEach(h => html += `<th>${h}</th>`);
+      html += "</tr></thead><tbody>";
+      data.rows.forEach(row => {
+        html += "<tr>";
+        row.forEach(col => html += `<td>${col}</td>`);
+        html += "</tr>";
+      });
+      html += "</tbody>";
+      table.innerHTML = html;
+      document.getElementById('margin-value').textContent = data.margin.value;
+      document.getElementById('margin-rate').textContent = data.margin.rate;
+    }
+
+    renderProfitTable(profitData);
+  </script>
+</body>
+</html>
