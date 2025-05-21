@@ -1,28 +1,6 @@
-// function loadKakaoMapScript(callback) {
-//     const configScript = document.createElement("script");
-//     configScript.src = "../../config.js";
-//     document.head.appendChild(configScript);
-
-//     configScript.onload = function () {
-//         if (typeof KAKAO_API_KEY !== "undefined") {
-//             console.log("KAKAO API Key Loaded:");
-
-//             const script = document.createElement("script");
-//             script.type = "text/javascript";
-//             script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${KAKAO_API_KEY}&libraries=services&autoload=false`;
-//             script.onload = callback; // 콜백 함수 호출
-//             document.head.appendChild(script);
-//         } else {
-//             console.error("KAKAO API Key not found in config.js!");
-//         }
-//     };
-//     configScript.onerror = function () {
-//         console.error("Failed to load config.js!");
-//     };
-// }
 function loadKakaoMapScript(callback) {
     const script = document.createElement("script");
-    const KAKAO_API_KEY = 'b256941fee23e126b5375ff202b9cd6a';
+    const KAKAO_API_KEY = '';
     script.type = "text/javascript";
     script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${KAKAO_API_KEY}&libraries=services&autoload=false`;
     script.onload = callback; // 콜백 함수 호출
